@@ -12,11 +12,11 @@ def csv_write_iterator(data_r_list):
     with open(filename, mode='a', newline='') as f:
         write_iter = csv.writer(f)
         for row in data_r_list:
-            water_temp = row.get("water-temperature")
-            co2 = row.get("CO2")
-            temp = row.get("temperature")
-            hum = row.get("humidity")
-            ec25 = row.get("EC25")
+            water_temp = row.get("d1")
+            co2 = row.get("d2")
+            temp = row.get("d3")
+            hum = row.get("d4")
+            ec25 = row.get("d5")
             time = row.get("created")
             write_iter.writerow([water_temp, co2, temp, hum, ec25, time])
 
@@ -41,9 +41,8 @@ if __name__ == '__main__':
     print("Start if __name__ == '__main__'")
     csv_read_iterator()
     csv_read_one_file()
-    data_r_list = [
-        {"water-temperature":24.0, "CO2":1000, "temperature": 25.0, "humidity": 60.0, "EC25":0.0, "created": '2025-08-25T10:45:16.685Z'},
-        {"water-temperature":24.0, "CO2":1000, "temperature": 26.5, "humidity": 65.0, "EC25":0.0, "created": '2025-08-25T10:45:16.685Z'},
-        {"water-temperature":24.0, "CO2":1000, "temperature": 27.0, "humidity": 70.0, "EC25":0.0, "created": '2025-08-25T10:45:16.685Z'}
-    ]
+    data_r_list = [{"d1":24.0, "d2":1000, "d3": 25.0, "d4": 60.0, "d5":0.0, "created": '2025-08-25T10:45:16.685Z'}, 
+                   {"d1":24.0, "d2":1000, "d3": 26.5, "d4": 65.0, "d5":0.0, "created": '2025-08-25T10:45:16.685Z'}, 
+                   {"d1":24.0, "d2":1000, "d3": 27.0, "d4": 70.0, "d5":0.0, "created": '2025-08-25T10:45:16.685Z'}
+                ]
     csv_write_iterator(data_r_list)

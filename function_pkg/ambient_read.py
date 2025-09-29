@@ -22,9 +22,9 @@ def get_ambient_data():
     params = {"readKey": AMBIENT_READ_KEY_TEST, "n": 10}  # 最新10件を取得
     r = requests.get(url, params=params)
     print(r.status_code)  # 200 が返ればOK
-    print(r.json())       # JSONデータ表示
-    data_r_list = data_csv.csv_write_iterator(r)
-    return data_r_list
+    list = r.json()       # JSONデータ表示
+    data_csv.csv_write_iterator(list)
+
 
 
 if __name__ == '__main__':
