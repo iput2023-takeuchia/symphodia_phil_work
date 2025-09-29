@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+    
+<body>
+    <header>
+        <h1>臨地実務実習 Ambientデータ表示</h1>
+    </header>
+
+    <main>
+        <hr>
+        <p>CSVデータ全件表示</p>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>時間</th>
+                    <th>水温</th>
+                    <th>CO2</th>
+                    <th>気温</th>
+                    <th>湿度</th>
+                    <th>EC25</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for value in input_ambient_data %}
+                <tr>
+                    <td>{{ value[5] }}</td>
+                    <td>{{ value[0] }}℃</td>
+                    <td>{{ value[1] }}ppm</td>
+                    <td>{{ value[2] }}℃</td>
+                    <td>{{ value[3] }}%</td>
+                    <td>{{ value[4] }}μS/cm</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <hr>
+        <a href="/update" class="btn" type="POST">更新</a>
