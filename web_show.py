@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def display_csvdata():
     print("Hello! (to Terminal)")
-    amb.get_ambient_data()
+    # amb.get_ambient_data()
     data_csv_list = csv.csv_read_iterator()
     print("data_csv_list: ", data_csv_list)
     
